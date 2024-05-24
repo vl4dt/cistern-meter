@@ -56,9 +56,9 @@ sensor:
       #calibrar el sensor usando valores de voltaje en el sistema recordar verificar valores al llenar la sisterna para min dejamos 0.39 y max 1.5.
 
       #Para calibrar y ver volts poner en comments todo el calibrate linear y volver a cargar
-     calibrate_linear:
-          datapoints:
-            - 0.39 -> 0
-            - 1.5 -> 100
+      calibrate_linear:
+        datapoints:
+          - 0.50 -> 0
+          - 1.05 -> 45
     unit_of_measurement: "%"
 
