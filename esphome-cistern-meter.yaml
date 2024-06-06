@@ -59,13 +59,21 @@ sensor:
     filters:
       # - multiply: 1000
 
+      - calibrate_polynomial:
+             degree: 2
+             datapoints:
+              # Map 0.0 (from sensor) to 0.0 (true value)
+              - 0.1700 -> 0.0
+              - 0.9800 -> 73.0159
+              - 1.3422 -> 100.0
+
       #calibrar el sensor usando valores de voltaje en el sistema recordar verificar valores al llenar la sisterna para min dejamos 0.39 y max 1.5.
 
       #Para calibrar y ver volts poner en comments todo el calibrate linear y volver a cargar
-       - calibrate_linear:
-           datapoints:
-             - 0.17 -> 0
-             - 1.3422 -> 100
+#       - calibrate_linear:
+#           datapoints:
+#             - 0.17 -> 0
+#             - 1.3422 -> 100
     unit_of_measurement: "%"
 #Actualizado 26 de mayo 2024 valores a 37%
 
