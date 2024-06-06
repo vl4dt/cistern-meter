@@ -55,7 +55,9 @@ sensor:
   - platform: adc
     pin: A5
     name: "Cisterna"
-    update_interval: 2s
+    update_interval: 0.2s
+    accuracy_decimals: 4
+    unit_of_measurement: "%"
     filters:
       # - multiply: 1000
 
@@ -63,9 +65,14 @@ sensor:
              degree: 2
              datapoints:
               # Map 0.0 (from sensor) to 0.0 (true value)
-              - 0.1700 -> 0.0
-              - 0.9800 -> 73.0159
-              - 1.3422 -> 100.0
+              - 0.1705 -> 0.0000
+              - 0.9805 -> 73.0159
+              - 1.3422 -> 100.0000
+
+      - median:
+          window_size: 30
+          send_every: 20
+          send_first_at: 15
 
       #calibrar el sensor usando valores de voltaje en el sistema recordar verificar valores al llenar la sisterna para min dejamos 0.39 y max 1.5.
 
@@ -74,6 +81,6 @@ sensor:
 #           datapoints:
 #             - 0.17 -> 0
 #             - 1.3422 -> 100
-    unit_of_measurement: "%"
+#    unit_of_measurement: "%"
 #Actualizado 26 de mayo 2024 valores a 37%
 
